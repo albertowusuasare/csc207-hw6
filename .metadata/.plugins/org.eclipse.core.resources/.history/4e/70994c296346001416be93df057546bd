@@ -1,0 +1,12 @@
+package com.farevee.groceries;
+
+/**
+ * This class describes the BulkFood object
+ * @author Albert Owusu-Asare
+ * Date : Sat Sep 27 11:13:40 CDT 2014
+ */
+
+public class BulkFood {
+	
+	
+}

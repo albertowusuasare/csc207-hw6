@@ -1,0 +1,73 @@
+package com.farevee.groceries;
+
+/**
+ * This class describes the BulkFood object
+ * @author Albert Owusu-Asare
+ * Date : Sat Sep 27 11:13:40 CDT 2014
+ */
+
+public class BulkFood {
+	
+	/**
+	 * Fields
+	 */
+	private String name;
+	private Units unit;
+	private int pricePerUnit;
+	private int supply;
+	
+	/**
+	 * Constructors
+	 */
+	
+	public BulkFood(String foodName ,int perUnitPrice, Units foodUnits, int quantity){
+		this.name = foodName;
+		this.pricePerUnit = perUnitPrice;
+		this.unit = foodUnits;
+		this.supply = quantity;
+	}
+	
+
+	
+
+	/**
+	 * Gets the name of the BulkFood
+	 * @param none
+	 * @return name, the name of the BulkFood
+	 */
+	public String getName(){
+		return this.name;
+	}
+	
+	/**
+	 * Gets the units of the BulkFood
+	 * @param none
+	 * @return unit , the units of the BulkFood
+	 */
+	
+	public Units getUnits(){
+		return this.unit;
+	}
+	
+	
+	/**
+	 * Gets the pricePerUnit of a BulkFood
+	 * @param none
+	 * @return pricePerUnit, the price per units of BulkItem
+	 */
+	
+	public int getPricePerUnit(){
+		return this.pricePerUnit;
+	}
+	
+	/**
+	 * Gets the quantity of the bulkItem
+	 * @param none
+	 * @return the quantity supplied of the bulk item;
+	 */
+	
+	public int getSupply(){
+		return this.supply;
+	}
+	
+}

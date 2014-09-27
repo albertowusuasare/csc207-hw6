@@ -1,0 +1,28 @@
+package com.farevee.groceries;
+
+public class BulkContainer extends BulkItem {
+
+	/**
+	 * Fields
+	 */
+	private BulkFood food;
+	private Units unit;
+	private int amount;
+	
+	public BulkContainer(BulkFood food, int itemQuantity,Weight itemWeight){
+		super(food,itemQuantity,itemWeight);
+	}
+	@Override
+	public Weight getWeight() {
+		return null;
+	}
+
+	@Override
+	public int getPrice() {
+		return 0;
+	}
+	
+	public String toString(){
+		return null;
+	}
+}

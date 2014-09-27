@@ -1,0 +1,12 @@
+package com.farevee.groceries;
+
+public class Weight {
+
+	private Units unit;
+	private int amount;
+	
+	public Weight(Units unit, int amnt){
+		this.unit = unit;
+		this.amount = amnt;
+	}
+}

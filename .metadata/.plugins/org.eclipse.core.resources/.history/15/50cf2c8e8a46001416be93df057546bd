@@ -1,0 +1,101 @@
+package com.farevee.groceries;
+
+/**
+ * This class describes the BulkFood object
+ * @author Albert Owusu-Asare
+ * Date : Sat Sep 27 11:13:40 CDT 2014
+ */
+
+public class BulkFood {
+	
+	/**
+	 * Fields
+	 */
+	private String name;
+	private Units unit;
+	private int pricePerUnit;
+	private  int supply;
+
+	
+	/**
+	 * Constructors
+	 */
+	
+	public BulkFood(String foodName ,int perUnitPrice, Units foodUnits){
+		this.name = foodName;
+		this.pricePerUnit = perUnitPrice;
+		this.unit = foodUnits;
+	}
+	
+
+	// Think about writing setter methods.
+	/**
+	 * Sets supply of foodItem
+	 * @param change the quantity to reduce supply by
+	 */
+	public void setSupply(int change){
+		this.supply -= change;
+	}
+
+	/**
+	 * Gets the name of the BulkFood
+	 * @param none
+	 * @return name, the name of the BulkFood
+	 */
+	public String getName(){
+		return this.name;
+	}
+	
+	/**
+	 * Gets the units of the BulkFood
+	 * @param none
+	 * @return unit , the units of the BulkFood
+	 */
+	
+	public Units getUnits(){
+		return this.unit;
+	}
+	
+	
+	/**
+	 * Gets the pricePerUnit of a BulkFood
+	 * @param none
+	 * @return pricePerUnit, the price per units of BulkItem
+	 */
+	
+	public int getPricePerUnit(){
+		return this.pricePerUnit;
+	}
+	
+	/**
+	 * Gets the quantity of the bulkItem
+	 * @param none
+	 * @return the quantity supplied of the bulk item;
+	 */
+	
+	public int getSupply(){
+		return this.supply;
+	}
+	
+	
+	
+	public boolean equals(Object obj){
+		
+		// check if obj is a type of BultItem
+		
+		if(obj instanceof BulkFood){
+			BulkFood otherBulkFood = (BulkFood) obj;
+			// check to see if fields match
+			if (  this.name.equals(otherBulkFood.name)
+					&& this.unit.equals(otherBulkFood.unit)
+					&& this.pricePerUnit == otherBulkFood.pricePerUnit
+					&& this.supply == otherBulkFood.supply){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+
+}

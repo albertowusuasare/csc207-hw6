@@ -87,5 +87,29 @@ public class Units {
 	 * Standard unit: Grams
 	 */
 	public static final Units GRAM = new Units("gram", "gm.", "grams");
+	
+	/**
+	 * The method checks if the current Unit object  is equal to another unit object
+	 * @param obj Some object
+	 * @return true if current Unit object's  fields are equal to obj fields
+	 *         false if current Unit  fields are not equal to obj fields.
+	 */
+	public boolean equals(Object obj){
+		
+		// check if obj is a type of BultItem
+		
+		if(obj instanceof Units){
+			Units otherUnits = (Units) obj;
+			// check to see if fields match
+			if ( this.name.equals(otherUnits.name) 
+					&& this.abbrev.equals(otherUnits.abbrev)
+					&& this.plural.equals(otherUnits.plural)
+					){
+				return true;
+			}
+		}
+	return false;
+	}
+	
 
 } // class Units

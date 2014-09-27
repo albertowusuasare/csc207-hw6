@@ -1,0 +1,15 @@
+package com.farevee.groceries;
+
+public class BulkItem implements Item {
+
+	@Override
+	public Weight getWeight() {
+		return null;
+	}
+
+	@Override
+	public int getPrice() {
+		return 0;
+	}
+
+}

@@ -18,8 +18,7 @@ public interface Item {
 	int getPrice();
 	
 	/**
-	 * Prints information about the current item
-	 * @return the price of an item. 
+	 * Returns information about this <code> Item </code>
 	 */
 	String toString();
 }

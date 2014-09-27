@@ -1,0 +1,30 @@
+package com.farevee.groceries;
+
+public class BulkContainer extends BulkItem {
+
+	/* 
+	 * Fields
+	 */
+	private String name;
+	
+	
+	public BulkContainer(String containerName,BulkFood food, int itemQuantity,Weight itemWeight){
+		super(food,itemQuantity,itemWeight);
+		this.name = containerName;	
+	}
+	
+	/**
+	 * Gets the name of this container
+	 * @return the name of this  <code>BulkContainer</code>
+	 */
+	
+	public String getName(){
+		return name;
+	}
+	
+	
+@Override 
+	public String toString(){
+		return name + " of " + super.toString();
+	}
+}

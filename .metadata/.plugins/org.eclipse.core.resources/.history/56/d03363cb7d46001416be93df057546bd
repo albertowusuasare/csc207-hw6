@@ -1,0 +1,36 @@
+package com.farevee.groceries;
+
+public class Weight {
+
+	private Units unit;
+	private int amount;
+	
+	public Weight(Units unit, int amnt){
+		this.unit = unit;
+		this.amount = amnt;
+	}
+	public int getWeightAmount(){
+		return this.amount;
+	}
+	
+	public Units getWeightUnits(){
+		return this.unit;
+	}
+	
+	public boolean equals(Object obj){
+		
+		// check if obj is a type of BultItem
+		
+		if(obj instanceof Weight){
+			BulkItem otherBulkItem = (BulkItem) obj;
+			// check to see if fields match
+			if ( this.food.equals(otherBulkItem.food) 
+					&& this.unit.equals(otherBulkItem.unit)
+					&& this.amount == otherBulkItem.amount
+					&& this.price == otherBulkItem.price
+					&& this.weight.equals(otherBulkItem.weight)){
+				return true;
+			}
+		}
+		
+}
