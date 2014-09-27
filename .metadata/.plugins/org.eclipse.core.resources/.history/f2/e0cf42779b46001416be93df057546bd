@@ -18,7 +18,7 @@ public class Weight {
 	}
 	
 	public String toSting(){
-		return (amount + " " + unit);
+		return amount +" " unit;
 	}
 	
 	/**

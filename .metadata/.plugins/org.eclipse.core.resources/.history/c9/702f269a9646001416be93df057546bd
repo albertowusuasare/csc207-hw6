@@ -1,0 +1,31 @@
+package com.farevee.groceries;
+
+/**
+ *  This class implements a package
+ * @author albertowusu-asare
+ */
+public class Package implements Item {
+
+	/*
+	 * Fields
+	 */
+	private String name;
+	private Weight weight;
+	private int price;
+	
+	/**
+	 * Contructs a package
+	 * @param item the item to be packaged
+	 * @param itemWeight the weight of the 
+	 */
+	@Override
+	public Weight getWeight() {
+		return null;
+	}
+
+	@Override
+	public int getPrice() {
+		return 0;
+	}
+
+}

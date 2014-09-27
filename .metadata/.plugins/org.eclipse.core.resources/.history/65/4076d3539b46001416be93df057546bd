@@ -17,10 +17,6 @@ public class Weight {
 		return this.unit;
 	}
 	
-	public String toSting(){
-		return (amount + " " + unit);
-	}
-	
 	/**
 	 * The method checks if the current weight is equal to another weight object
 	 * @param obj Some object

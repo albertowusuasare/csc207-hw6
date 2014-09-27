@@ -88,6 +88,6 @@ public boolean equals(Object obj){
  *  Returns Information about this <code> Package </code>
  */
 public String toString(){
-	return (weight.toString() + " package of " + item) ;
+	return weight.toString() + " package of " + item ;
 }
 }

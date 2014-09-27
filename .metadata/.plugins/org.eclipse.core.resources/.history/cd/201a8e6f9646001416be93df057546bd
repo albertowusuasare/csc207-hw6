@@ -1,0 +1,22 @@
+package com.farevee.groceries;
+
+public class Package implements Item {
+
+	/*
+	 * Fields
+	 */
+	private String name;
+	private Weight weight;
+	private int price;
+	
+	@Override
+	public Weight getWeight() {
+		return null;
+	}
+
+	@Override
+	public int getPrice() {
+		return 0;
+	}
+
+}

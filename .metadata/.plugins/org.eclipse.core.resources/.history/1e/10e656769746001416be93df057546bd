@@ -1,0 +1,41 @@
+package com.farevee.groceries;
+
+/**
+ *  This class implements a package.
+ *  <p> With this class, various items eg. {@link BulkItem} or {@link BulkContainer}, can be packaged 
+ * @author albertowusu-asare
+ */
+public class Package implements Item {
+
+	/*
+	 * Fields
+	 */
+	private Item item;
+	private String name;
+	private Weight weight;
+	private int price;
+	
+	/**
+	 * Constructs a package
+	 * @param packageName name of the package
+	 * @param item the item to be packaged
+	 * @param itemWeight the weight of the item
+	 */
+	
+	public Package (String packageName,Item item, Weight itemWeight){
+		this.name = packageName;
+		this.item = item;
+		this.weight = itemWeight;	
+	}
+	
+	@Override
+	public Weight getWeight() {
+		return null;
+	}
+
+	@Override
+	public int getPrice() {
+		return 0;
+	}
+
+}
