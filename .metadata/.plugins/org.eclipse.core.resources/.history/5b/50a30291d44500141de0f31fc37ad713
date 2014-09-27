@@ -1,0 +1,5 @@
+package com.farevee.groceries;
+
+public interface Item {
+
+}

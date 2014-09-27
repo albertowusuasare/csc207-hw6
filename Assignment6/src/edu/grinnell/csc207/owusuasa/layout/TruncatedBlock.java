@@ -3,12 +3,19 @@ package edu.grinnell.csc207.owusuasa.layout;
 public class TruncatedBlock
 implements TextBlock
 {
+	  /**
+	   * The stuff in the box
+	   */
+	  TextBlock contents;
+	  private int newWidth;
+	  
 /**
  * Create a new truncated block of the specified width.
  */
 public TruncatedBlock(TextBlock tb, int width)
 {
- // ...
+ this.contents = tb;
+ this.newWidth = width;
 } // TruncatedBlock(TextBlock, int)
 
 /**
@@ -34,7 +41,6 @@ public int height()
  */
 public int width()
 {
- // ...
-  return 1;
+  return this.contents.width() - newWidth;
 } // width()
 } // class TruncatedBlock
