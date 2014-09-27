@@ -1,5 +1,7 @@
 package com.farevee.groceries;
 
+// what does the price fields mean
+
 /**
  *  This class implements a package.
  *  <p> With this class, various items eg. {@link BulkItem} or {@link BulkContainer}, can be packaged 
@@ -26,6 +28,7 @@ public class Package implements Item {
 		this.name = packageName;
 		this.item = item;
 		this.weight = itemWeight;	
+		this.price = item.getPrice();
 	}
 	
 	/**
