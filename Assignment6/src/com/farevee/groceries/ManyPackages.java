@@ -24,6 +24,7 @@ public class ManyPackages implements Item {
 		this.pack = pack;
 		this.count = quantity;
 	}
+	
 	@Override
 	public Weight getWeight() {
 		int weightMagnitude = pack.getWeight().getWeightAmount() * count;
@@ -38,6 +39,13 @@ public class ManyPackages implements Item {
 		return pack.getPrice() * count;
 	}
 
+	/**
+	 * Returns the count of total item
+	 */
+	
+	public int getCount(){
+		return this.count;
+	}
 	/**
 	 * Returns information about this object
 	 */
