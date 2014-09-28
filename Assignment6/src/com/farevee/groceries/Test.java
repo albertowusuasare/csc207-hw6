@@ -12,25 +12,25 @@ public class Test {
 		
 		//Test for banana BulkFood and BulkItem
 		pen.println("Test for BulkFood and BulkItem");
-		BulkFood banana = new BulkFood("banana", 100, Units.POUND, 100);
-		BulkItem bananas = new BulkItem(banana, 5, new Weight(Units.POUND,2));
+		BulkFood banana = new BulkFood("banana",Units.POUND,50, 20);
+		BulkItem bananas = new BulkItem(banana,new Weight(Units.POUND,2),5);
 		pen.println(bananas);
 		pen.println(bananas.getWeight());
 		pen.println(bananas.getPrice() + " cents");
-		BulkFood organicBanana = new BulkFood("banana", 100, Units.POUND, 100);
-		BulkItem organicBananas = new BulkItem(organicBanana, 5, new Weight(Units.POUND,2));
+		BulkFood organicBanana = new BulkFood("banana",Units.POUND,100, 100);
+		BulkItem organicBananas = new BulkItem(organicBanana,new Weight(Units.POUND,2),5);
 		pen.println(bananas.equals(organicBananas));
 		
 		//Test for BulkContainer 
 		pen.println();
 		pen.println("Test for BulkContainer");
-		BulkContainer bag = new BulkContainer("bag", banana,5, new Weight(Units.POUND,2));
+		BulkContainer bag = new BulkContainer("bag", banana,new Weight(Units.POUND,2),5);
 		pen.println(bag);
 		pen.println(bag.getWeight());
 		pen.println(bag.getPrice()+ " cents");
-		BulkContainer bag1 = new BulkContainer("bag", banana,5, new Weight(Units.POUND,2));
+		BulkContainer bag1 = new BulkContainer("bag", banana,new Weight(Units.POUND,2),5);
 		pen.println(bag.equals(bag1));
-		BulkContainer bag2 = new BulkContainer("bag", banana,5, new Weight(Units.POUND,3));
+		BulkContainer bag2 = new BulkContainer("bag", banana,new Weight(Units.POUND,3),5);
 		pen.println(bag1.equals(bag2));
 		
 		
@@ -62,7 +62,8 @@ public class Test {
 		pen.println(canOpener);
 		pen.println(canOpener.getWeight());
 		pen.println(canOpener.getPrice() + " cents");
-		
+		NonFood cocaColaOpener= new NonFood("can opener", new Weight(Units.OUNCE,2), 349);
+		pen.println(cocaColaOpener.equals(canOpener));
 		
 		
 	}
