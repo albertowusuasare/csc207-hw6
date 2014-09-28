@@ -7,11 +7,23 @@ public class BulkContainer extends BulkItem {
 	 */
 	private String name;
 	
+	/**
+	 * Constructs a <code> BulkContainer</code>
+	 * @param containerName
+	 * @param food
+	 * @param itemQuantity
+	 * @param itemWeight
+	 */
 	
 	public BulkContainer(String containerName,BulkFood food, int itemQuantity,Weight itemWeight){
 		super(food,itemQuantity,itemWeight);
 		this.name = containerName;	
 	}
+	
+	/**
+	 *  Constructs a BulkContainer
+	 */
+	
 	
 	/**
 	 * Gets the name of this container

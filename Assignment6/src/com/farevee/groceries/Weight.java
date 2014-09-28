@@ -2,11 +2,11 @@ package com.farevee.groceries;
 
 public class Weight {
 
-	private Units unit;
+	private Units units;
 	private int amount;
 	
-	public Weight(int amount, Units units){
-		this.unit = unit;
+	public Weight(int amount, Units weightUnits){
+		this.units = weightUnits;
 		this.amount = amount;
 	}
 	public int getWeightAmount(){
@@ -14,12 +14,12 @@ public class Weight {
 	}
 	
 	public Units getWeightUnits(){
-		return this.unit;
+		return this.units;
 	}
 	
-	
-	public String toSting(){
-		return (amount + " " + unit);
+	@Override
+	public String toString(){
+		return (amount + " " + units + "(s)");
 	}
 	
 	/**
@@ -36,8 +36,8 @@ public class Weight {
 		if(obj instanceof Weight){
 			Weight otherWeight = (Weight) obj;
 			// check to see if fields match
-			if ( this.unit.equals(otherWeight.unit) 
-					&& this.amount == otherWeight.amount)
+			if ( this.getWeightUnits().equals(otherWeight.getWeightUnits()) 
+					&& this.getWeightAmount() == otherWeight.getWeightAmount())
 				{
 				return true;
 			}

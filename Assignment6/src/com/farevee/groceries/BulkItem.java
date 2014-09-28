@@ -42,6 +42,8 @@ public class BulkItem implements Item {
 		// price per unit of bulk food
 		//calculate the price of the BulkItem
 		int pricePerUnit =  food.getPricePerUnit() ;
+		
+		// check if units match. if they dont do useful convertion or throu exception
 		int weightAmount = weight.getWeightAmount();
 		this.price = pricePerUnit * weightAmount*amount;
 		return this.price;
@@ -51,7 +53,7 @@ public class BulkItem implements Item {
 	 *  Returns Information about this <code> Item </code>
 	 */
 	public String toString(){
-		return this.amount + " " + unit + " of " + food.getName();
+		return this.amount + " " + unit + "(s) of " + food.getName();
 	}
 	
 	/**
@@ -71,8 +73,9 @@ public class BulkItem implements Item {
 			if ( this.food.equals(otherBulkItem.food) 
 					&& this.unit.equals(otherBulkItem.unit)
 					&& this.amount == otherBulkItem.amount
-					&& this.price == otherBulkItem.price
-					&& this.weight.equals(otherBulkItem.weight)){
+					&& this.getPrice() == otherBulkItem.getPrice()
+					&& this.weight.equals(otherBulkItem.weight))
+			{
 				return true;
 			}
 		}
