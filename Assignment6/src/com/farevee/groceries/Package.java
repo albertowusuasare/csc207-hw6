@@ -1,6 +1,7 @@
 package com.farevee.groceries;
 
 // what does the price fields mean
+// I need another constructor: how should a package object be instanciated? do i need new?
 
 /**
  *  This class implements a package.
@@ -18,18 +19,23 @@ public class Package implements Item {
 	private int price;
 	
 	/**
-	 * Constructs a package given an a package name, an item and the items weight
+	 * Constructs a package given a package name, an item and the item's weight
 	 * @param packageName name of the package
 	 * @param item the item to be packaged
 	 * @param itemWeight the weight of the item
 	 */
 	
-	public Package (String packageName,Item item, Weight itemWeight){
+	public Package (String packageName,Item item, Weight packageWeight){
 		this.name = packageName;
 		this.item = item;
-		this.weight = itemWeight;	
+		this.weight = packageWeight;
 		this.price = item.getPrice();
 	}
+	
+	/**
+	 * Constructs a package given a package name, information about some item and the weight of the item.
+	 */
+	
 	
 	/**
 	 * Returns  the item in this package
@@ -48,14 +54,15 @@ public class Package implements Item {
 	
 	@Override
 	public Weight getWeight() {
-		return weight;
+		int totalWeight= this.item.getWeight().getWeightAmount() + weight.getWeightAmount();
+		return new Weight(totalWeight,weight.getWeightUnits());
 	}
 	
 	
 
 	@Override
 	public int getPrice() {
-		price = item.getPrice();
+		price = item.getPrice() * weight.getWeightAmount();
 	
 		return price;
 	}

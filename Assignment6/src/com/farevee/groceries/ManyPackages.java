@@ -11,7 +11,7 @@ public class ManyPackages implements Item {
 	 * Fields 
 	 */
 	
-	private Item item;
+	private Package pack;
 	private int quantity;
 	private Weight weight;
 	/**
@@ -20,14 +20,14 @@ public class ManyPackages implements Item {
 	 * @param the total quantity of packages
 	 */
 	
-	public ManyPackages(Item item , int quantity){
-		this.item = item;
+	public ManyPackages(Package pack, int quantity){
+		this.pack = pack;
 		this.quantity = quantity;
 	}
 	@Override
 	public Weight getWeight() {
-		int weightMagnitude = item.getWeight().getWeightAmount() * quantity;
-		Units weightUnits = item.getWeight().getWeightUnits();
+		int weightMagnitude = pack.getWeight().getWeightAmount() * quantity;
+		Units weightUnits = pack.getWeight().getWeightUnits();
 		weight = new Weight(weightMagnitude,weightUnits);
 		return weight;
 	}
@@ -35,14 +35,14 @@ public class ManyPackages implements Item {
 	@Override
 	public int getPrice() {
 		
-		return item.getPrice() * quantity;
+		return pack.getPrice() * quantity;
 	}
 
 	/**
 	 * Returns information about this object
 	 */
 	public String toString(){
-		return (this.quantity + "x "+ item);
+		return (this.quantity + " x "+ pack);
 	}
 	
 

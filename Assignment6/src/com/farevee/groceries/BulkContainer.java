@@ -1,5 +1,5 @@
 package com.farevee.groceries;
-
+//probably needs a new constructor just taking in an item
 public class BulkContainer extends BulkItem {
 
 	/* 
