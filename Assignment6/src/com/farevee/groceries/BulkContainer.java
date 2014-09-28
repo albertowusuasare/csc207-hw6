@@ -15,8 +15,8 @@ public class BulkContainer extends BulkItem {
 	 * @param itemWeight
 	 */
 	
-	public BulkContainer(String containerName,BulkFood food, int itemQuantity,Weight itemWeight){
-		super(food,itemQuantity,itemWeight);
+	public BulkContainer(String containerName,BulkFood food,Weight itemWeight,int itemQuantity){
+		super(food,itemWeight,itemQuantity);
 		this.name = containerName;	
 	}
 	

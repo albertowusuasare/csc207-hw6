@@ -27,7 +27,7 @@ public class BulkFood {
 	 * 
 	 */
 	
-	public BulkFood(String foodName ,int perUnitPrice, Units foodUnits,int foodSupply){
+	public BulkFood(String foodName ,Units foodUnits, int perUnitPrice, int foodSupply){
 		this.name = foodName;
 		this.pricePerUnit = perUnitPrice;
 		this.unit = foodUnits;

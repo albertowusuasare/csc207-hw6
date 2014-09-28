@@ -21,7 +21,7 @@ public class BulkItem implements Item {
 	 *  @param weight the  {@link Weight} of the foodItem 
 	 */
 	
-	public BulkItem(BulkFood bulkFood, int itemQuantity, Weight itemWeight){
+	public BulkItem(BulkFood bulkFood,Weight itemWeight, int itemQuantity){
 		
 		this.food = bulkFood;
 		this.amount = itemQuantity;

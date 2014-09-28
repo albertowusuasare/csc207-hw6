@@ -1,5 +1,5 @@
 package com.farevee.groceries;
-
+//copying and pasting is somewhat bad
 /**
  * This class implements NonFood items.
  * 
@@ -53,7 +53,7 @@ public class NonFood implements Item {
 
 		// check if obj is a type of BultItem
 
-		if (obj instanceof Package) {
+		if (obj instanceof NonFood) {
 			NonFood otherNonFood = (NonFood) obj;
 			// check to see if fields match
 			if (this.getName().equals(otherNonFood.getName())
