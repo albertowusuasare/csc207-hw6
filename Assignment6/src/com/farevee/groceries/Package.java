@@ -55,7 +55,7 @@ public class Package implements Item {
 	@Override
 	public Weight getWeight() {
 		int totalWeight= this.item.getWeight().getWeightAmount() + weight.getWeightAmount();
-		return new Weight(totalWeight,weight.getWeightUnits());
+		return new Weight(weight.getWeightUnits(),totalWeight);
 	}
 	
 	

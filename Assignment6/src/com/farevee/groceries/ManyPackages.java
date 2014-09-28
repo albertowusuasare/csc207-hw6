@@ -12,7 +12,7 @@ public class ManyPackages implements Item {
 	 */
 	
 	private Package pack;
-	private int quantity;
+	private int count;
 	private Weight weight;
 	/**
 	 * Constructs <code>ManyPackages </code> given its inputs
@@ -22,27 +22,27 @@ public class ManyPackages implements Item {
 	
 	public ManyPackages(Package pack, int quantity){
 		this.pack = pack;
-		this.quantity = quantity;
+		this.count = quantity;
 	}
 	@Override
 	public Weight getWeight() {
-		int weightMagnitude = pack.getWeight().getWeightAmount() * quantity;
+		int weightMagnitude = pack.getWeight().getWeightAmount() * count;
 		Units weightUnits = pack.getWeight().getWeightUnits();
-		weight = new Weight(weightMagnitude,weightUnits);
+		weight = new Weight(weightUnits,weightMagnitude);
 		return weight;
 	}
 
 	@Override
 	public int getPrice() {
 		
-		return pack.getPrice() * quantity;
+		return pack.getPrice() * count;
 	}
 
 	/**
 	 * Returns information about this object
 	 */
 	public String toString(){
-		return (this.quantity + " x "+ pack);
+		return (this.count + " x "+ pack);
 	}
 	
 
@@ -58,14 +58,9 @@ public class ManyPackages implements Item {
 	
 public boolean equals(Object obj){
 		
-		// check if obj is a type of BultItem
-		
-		if(obj instanceof Package){
-			ManyPackages other = (ManyPackages) obj;
-			// check if both objects point to the same reference
-			if(this.equals(other)){
-				return true;
-			}
+		// check if this object and obj point to the same object
+		if (this == obj){
+			return true;
 		}
 		
 		return false;

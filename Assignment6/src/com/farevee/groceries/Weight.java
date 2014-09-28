@@ -5,7 +5,7 @@ public class Weight {
 	private Units units;
 	private int amount;
 	
-	public Weight(int amount, Units weightUnits){
+	public Weight( Units weightUnits, int amount){
 		this.units = weightUnits;
 		this.amount = amount;
 	}
