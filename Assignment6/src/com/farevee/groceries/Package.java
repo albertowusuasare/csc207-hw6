@@ -44,11 +44,15 @@ public class Package implements Item {
 		return item;
 	}
 	
+	public String getItemName(){
+		return item.getItemName();
+	}
+	
 	/**
 	 * Returns the name of this package
 	 * @return
 	 */
-	public String getName(){
+	public String getPackageName(){
 		return name;
 	}
 	
@@ -84,7 +88,7 @@ public boolean equals(Object obj){
 			Package otherPackage = (Package) obj;
 			// check to see if fields match
 			if ( this.getItem().equals(otherPackage.getItem())
-					&& this.getName().equals(otherPackage.getName())
+					&& this.getPackageName().equals(otherPackage.getPackageName())
 					&& this.getPrice() == otherPackage.getPrice()
 					&& this.getWeight().equals(otherPackage.getWeight())){
 				return true;

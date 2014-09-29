@@ -49,6 +49,10 @@ public class BulkItem implements Item {
 		return this.price;
 	}
 	
+	public String getItemName(){
+		return food.getName();
+	}
+	
 	/**
 	 *  Returns Information about this <code> Item </code>
 	 */

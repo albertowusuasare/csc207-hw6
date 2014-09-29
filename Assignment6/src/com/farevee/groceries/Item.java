@@ -21,4 +21,9 @@ public interface Item {
 	 * Returns information about this <code> Item </code>
 	 */
 	String toString();
+	
+	/**
+	 * Returns the name of the item
+	 */
+	String getItemName();
 }

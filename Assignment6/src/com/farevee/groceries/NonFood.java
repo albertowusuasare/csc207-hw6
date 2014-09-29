@@ -32,10 +32,8 @@ public class NonFood implements Item {
 		this.price = price;
 	}
 
-	/**
-	 * Returns the name of this Non-Food
-	 */
-	public String getName() {
+	@Override
+	public String getItemName() {
 		return name;
 	}
 
@@ -56,7 +54,7 @@ public class NonFood implements Item {
 		if (obj instanceof NonFood) {
 			NonFood otherNonFood = (NonFood) obj;
 			// check to see if fields match
-			if (this.getName().equals(otherNonFood.getName())
+			if (this.getItemName().equals(otherNonFood.getItemName())
 					&& this.getWeight().equals(otherNonFood.getWeight())
 					&& this.getPrice() == otherNonFood.getPrice()) {
 				return true;

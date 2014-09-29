@@ -20,16 +20,12 @@ public class BulkContainer extends BulkItem {
 		this.name = containerName;	
 	}
 	
-	/**
-	 *  Constructs a BulkContainer
-	 */
-	
+
 	
 	/**
 	 * Gets the name of this container
 	 * @return the name of this  <code>BulkContainer</code>
 	 */
-	
 	public String getName(){
 		return name;
 	}

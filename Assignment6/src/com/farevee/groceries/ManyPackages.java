@@ -26,6 +26,11 @@ public class ManyPackages implements Item {
 	}
 	
 	@Override
+	public String getItemName(){
+		return pack.getItemName();
+	}
+	
+	@Override
 	public Weight getWeight() {
 		int weightMagnitude = pack.getWeight().getWeightAmount() * count;
 		Units weightUnits = pack.getWeight().getWeightUnits();
