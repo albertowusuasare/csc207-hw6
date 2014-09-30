@@ -2,7 +2,7 @@ package com.farevee.groceries;
 
 /** 
  * Implements the ManyPackages
- * @author albertowusu-asare
+ * @author Albert Owusu-Asare
  *
  */
 public class ManyPackages implements Item {
@@ -14,6 +14,7 @@ public class ManyPackages implements Item {
 	private Package pack;
 	private int count;
 	private Weight weight;
+	
 	/**
 	 * Constructs <code>ManyPackages </code> given its inputs
 	 * @param item the package

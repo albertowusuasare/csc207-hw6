@@ -44,5 +44,13 @@ public class Weight {
 		}
 		return false;
 	}
+	
+	/**
+	 *  Add a weight to this weight
+	 */
+	
+	public Weight add(Weight otherweight){
+		return new Weight(this.getWeightUnits(), this.getWeightAmount() + otherweight.getWeightAmount());
+	}
 		
 }

@@ -1,7 +1,9 @@
 package com.farevee.shopping;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
+import com.farevee.groceries.Package;
 import com.farevee.groceries.Item;
 import com.farevee.groceries.ManyPackages;
 import com.farevee.groceries.Units;
@@ -19,10 +21,12 @@ public class Cart{
 	/*
 	 * Fields 
 	 */
-	int itemCounter; // stores the number of items in the cart
-	int entryCounter; // used for counting the number of entries
-	int totalPrice; // stores the total price for the cart
+	private int itemCounter; // stores the number of items in the cart
+	private int entryCounter; // used for counting the number of entries
+	private int totalPrice; // stores the total price for the cart
+	private Weight [] cartWeight;
 	LinkedList<Item> storage = new LinkedList<Item>(); // stores items
+	
 	
 	/**
 	 * Constructs a cart
@@ -121,6 +125,7 @@ public class Cart{
 			Units itemUnit = shopItem.getWeight().getWeightUnits();
 			int unitAmount = shopItem.getWeight().getWeightAmount();
 			
+			
 			//if item units is POUND
 			if(itemUnit.equals(Units.POUND)){
 				totalPounds += unitAmount;
@@ -143,7 +148,8 @@ public class Cart{
 		Weight totalKilogramWeight = new Weight(Units.KILOGRAM, totalKilograms);
 		Weight totalGramWeight = new Weight(Units.GRAM, totalGrams);
 		
-		return new Weight[]{totalPoundWeight,totalOunceWeight, totalKilogramWeight,totalGramWeight };
+		this.cartWeight = new Weight[]{totalPoundWeight,totalOunceWeight, totalKilogramWeight,totalGramWeight };
+		return this.cartWeight;
 	}
 	
 	/**
@@ -152,14 +158,72 @@ public class Cart{
 	 * @return non
 	 */
 	public void remove(String name){
-		/*int counter = 0;
-		for(Item shopItem : storage){
-			counter++;
-			if( shopItem.)
+		int index;
+		
+		// loop through list 
+		for(index = 0; index <= storage.size(); index++){
+			Item cartItem =storage.get(index) ;
+			if (name.equals(cartItem.getItemName())){
+				
+				/*Update cart information*/
+				
+				//update entryCounter and itemCounter
+				if(cartItem instanceof ManyPackages){
+					this.itemCounter -= ((ManyPackages) cartItem).getCount();
+				}
+				else {
+					this.itemCounter --;
+				}
+				this.entryCounter --;
+				
+				//delete item from cart
+				storage.remove(index);
+			}
 		}
-		*/
+		
+		 
 	}
 	
+	/**
+	 * Merges identical items together. 
+	 * <p>  Finds identical items and merges them into a single item. For example, if you have two Package items with the same name, weight, and price, 
+	 * <br> both Packages are combined into a single {@link com.farevee.groceries.ManyPackages  ManyPackages} object. If you have {@link com.farevee.groceries.ManyPackages  ManyPackages} and a {@link com.farevee.groceries.Packages  Package} object of the same kind, you should combine<br>
+	 *  them. Continuing, if you have two {@link com.farevee.groceries.ManyPackages  ManyPackages} objects that contain the same kind of {@link com.farevee.groceries.Packages  Package}, both are  combined  into a single {@link com.farevee.groceries.ManyPackages  ManyPackages} <br>
+	 * object. Similarly, if you have two {@link com.farevee.groceries.BulkItem  BulkItem} objects with the same food and units, you should combine them into one {@link com.farevee.groceries.BulkItem  BulkItem}. However, there is no way to <br>
+	 * combine {@link com.farevee.groceries.BulkContainer  BulkContainer} objects with anything. This method does not need to do anything with {@link com.farevee.groceries.NonFood  NonFood} objects.
+	 * @param none
+	 * @return none
+	 */
+	
+	public void merge(){
+		ArrayList<Integer> packageIndex= new ArrayList<Integer>();
+		int index;
+		// loop through list 
+		for(index = 0; index <= storage.size(); index++){
+			Item cartItem = storage.get(index);
+			// if item is a Package
+			if (cartItem instanceof Package){
+				Package temp = (Package) cartItem;
+				packageIndex.add(index);
+				
+			//run through the packageIndex array to check if any Index has similar as our current package
+			for(Integer s : packageIndex){
+				if(storage.get(s).equals(temp)){
+					Package temporal = new Package(temp.getItemName(), temp.getItem(), storage.get(s).getWeight().add(temp.getWeight()) );
+					
+				};
+			}
+		
+			
+			}
+			
+		}
+		
+		
+	}
+	
+	
+
 	
 	
 }

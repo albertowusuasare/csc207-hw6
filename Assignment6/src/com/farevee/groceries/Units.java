@@ -41,8 +41,9 @@ public class Units {
 	// | Accessors |
 	// +-----------+
 
+	@Override
 	/**
-	 * Get the unit name.
+	 * Return  the unit name.
 	 */
 	public String toString() {
 		return this.name;
