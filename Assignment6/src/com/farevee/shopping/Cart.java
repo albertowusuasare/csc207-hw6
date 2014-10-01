@@ -25,7 +25,7 @@ public class Cart{
 	private int entryCounter; // used for counting the number of entries
 	private int totalPrice; // stores the total price for the cart
 	private Weight [] cartWeight;
-	LinkedList<Item> storage = new LinkedList<Item>(); // stores items
+	private LinkedList<Item> storage = new LinkedList<Item>(); // stores items
 	
 	
 	/**
