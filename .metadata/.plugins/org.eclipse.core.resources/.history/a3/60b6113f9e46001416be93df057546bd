@@ -1,0 +1,23 @@
+package com.farevee.groceries;
+
+/**
+ * This class implements NonFood items.
+ * @author Albert Owusu-Asare
+ *
+ */
+public class NonFood implements Item {
+
+	/*
+	 * Fields
+	 */
+	@Override
+	public Weight getWeight() {
+		return null;
+	}
+
+	@Override
+	public int getPrice() {
+		return 0;
+	}
+
+}

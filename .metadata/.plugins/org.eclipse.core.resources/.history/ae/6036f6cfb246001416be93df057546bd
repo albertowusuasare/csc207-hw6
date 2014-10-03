@@ -1,0 +1,45 @@
+package com.farevee.groceries;
+
+/** 
+ * Implements the ManyPackages
+ * @author albertowusu-asare
+ *
+ */
+public class ManyPackages implements Item {
+
+	/*
+	 * Fields 
+	 */
+	
+	private Item item;
+	private int quantity;
+	private Weight weight;
+	/**
+	 * Constructs <code>ManyPackages </code> given its inputs
+	 * @param item the package
+	 * @param the total quantity of packages
+	 */
+	
+	public ManyPackages(Item item , int quantity){
+		this.item = item;
+		this.quantity = quantity;
+		weight = new Weight(item.getWeight().getWeightAmount() * quantity, item.getWeight().getWeightUnits());
+	}
+	@Override
+	public Weight getWeight() {
+		return weight;
+	}
+
+	@Override
+	public int getPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * Returns information about this object
+	 */
+	public String toString(){
+		return (this.quantity + "x "+ item);
+	}
+}

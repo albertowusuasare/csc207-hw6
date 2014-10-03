@@ -1,0 +1,142 @@
+
+Part E : Design Reflections:
+----------------------------
+
+/*Differences in the relationships between BulkItem and BulkContainer compared to the relationship 
+between Package and ManyPackages */
+
+For the BulkItem and BulkContainer, we see a direct is a relationship where by we explicitly through the 'extends'
+keyword that every BulkContainer object also is a BulkItem object.For the Package and ManyPackages we observe a relationship
+of composition such that we say , every ManyPackage object 'has a'  Package.
+
+ BulkItem -BulkContainer relationship advantage/disadvantages over ManyPackage -Package relationship:
+ 
+ Advantages:
+ 
+ i) Since a BulkContainer is a BulkItem, a BulkContainer can easily inherit all the  fields and methods (if package access, public or protected)
+ of BulkItem. This allows for code reuse. In the ManyPackages-Packages scenario we would need have implementations for each separately and 
+ there is not much code reuse
+ 
+ ii)  The inheritance option allows to easily  add to the functionality of parent class that we would like to be evident in the
+child class. So we can basically have something that is BulkItem but behaves differently in its implementation
+
+iii) Inheritance allows us to write even more polymorphic methods, since any method we write that takes a BulkItem as a parameter, can also 
+take a BulkContainer in its stead. Also we can use a BulkItem variable to hold a BulkContainer object but we cant do similar with the 
+ManyPackages-Package approach
+
+
+Disadvantages:
+
+i) With the Many-Packages-Packages approach , a 'Package' object and a 'ManyPackges'objects  though having some connection are 
+ very distinct objects. This means if for any reason we make some changes in the 'Package' class, for instance add some new methods to
+ it, we wouldn't worry about its effect on the 'ManyPackages' class we might just worry about the effect of the change in behavior the package
+ object inside 'ManyPackages' might behave, but we wouldn't necessarily care about effects to our 'ManyPackages' implementation.
+ 
+ We can't say this about the  the 'BulkItem- BulkContainer' approach. Since a BulkContainer is a BulkItem, any changes in the BulkItem class
+ class should strike some concern about how our BulkContainer object behaves. Hence there is more protection(Encapsulation?) when we use 
+ the composition approach than the inheritance approach.
+ 
+ 
+ 
+ /* On using Cart.remove() and Cart.merge()*/
+ 
+ i) directly access the name field 
+ 
+ Advantages:
+ ------------
+ This approach is best in terms of simplicity because all we would have to do is to access the name field of the object we care about.
+ In terms of difficulty of implementation this process is fairly easy to implement and hence is the most concise.
+ 
+ DisAdvantages
+ -------------
+ I made most of my fields private because I wanted to prevent a direct access to the fields. I felt this would protect the underlying 
+ object's properties by being modified. I would only use setters to set fields so that each time a property is changed I am sure 
+ it was a deliberate attempt ( deliberate call) to change that property.
+ 
+ii) write a get method for each class 
+
+Advantages
+----------
+I liked this method the most because I think it fits best with our original design model. 
+
+Our original model:
+
+ 
++-Item----------------+   +-BulkFood----------+   +-Weight------+
+| getWeight(): Weight |   | name: String      |   | unit: Units |
+| getPrice(): int     |   | unit: Units       |   | amount: int |
+| toString(): String  |   | pricePerUnit: int |   +-------------+
++---------------------+   | supply: int       |
+ ^   ^   ^   ^            +-------------------+
+ |   |   |   |
+ |   |   |   +-----------------------------------+
+ |   |   +----------------------------------+    |
+ |   +--------------------+                 |    |
+ |                        |                 |    |
++-BulkItem------------+  +-Package--------+ | +-ManyPackages---+
+| food: BulkFood      |  | name: String   | | | type: Package  |
+| unit: Units         |  | weight: Weight | | | count: int     |
+| amount: int         |  | price: int     | | +----------------+
++---------------------+  +----------------+ |
+ ^                                          |
+ |                                        +-NonFood--------+
++-BulkContainer-------+                   | name: String   |
+| container: String   |                   | weight: Weight |
++---------------------+                   | price: int     |
+                                          +----------------+ 
+ 
+ 
+ We realize throughout our design that we care a lot about the weight, price and representation of the particular Item (toString()).
+ Now that we want to know an extra bit of information about each Item,(i.e the name)  it only  makes sense that we add this to 
+ the things we care about and hence it makes sense to add the method getName() to our abstract Item which will be implemented in 
+ all the other classes.
+ 
+ Our model now looks like this:
+ 
+ 
++-Item----------------+   +-BulkFood----------+   +-Weight------+
+| getWeight(): Weight |   | name: String      |   | unit: Units |
+| getPrice(): int     |   | unit: Units       |   | amount: int |
+| toString(): String  |   | pricePerUnit: int |   +-------------+
+| getName(); String
++---------------------+   | supply: int       |
+ ^   ^   ^   ^            +-------------------+
+ |   |   |   |
+ |   |   |   +-----------------------------------+
+ |   |   +----------------------------------+    |
+ |   +--------------------+                 |    |
+ |                        |                 |    |
++-BulkItem------------+  +-Package--------+ | +-ManyPackages---+
+| food: BulkFood      |  | name: String   | | | type: Package  |
+| unit: Units         |  | weight: Weight | | | count: int     |
+| amount: int         |  | price: int     | | +----------------+
++---------------------+  +----------------+ |
+ ^                                          |
+ |                                        +-NonFood--------+
++-BulkContainer-------+                   | name: String   |
+| container: String   |                   | weight: Weight |
++---------------------+                   | price: int     |
+                                          +----------------+ 
+ 
+ Disadvantages: 
+ 
+Extra work has to be done in writing methods for each class.
+
+
+iii) An equals methods
+
+Advantages:
+----------
+
+This method solves directly the problem of comparing if an item matches a particular name.
+
+DisAdvantages:
+-------------
+
+It is difficult to think of another reason we might want to use the equals method apart from the scenario we are dealing 
+
+
+
+
+ 
+ 

@@ -1,0 +1,45 @@
+1. check if supply is decremented as should
+2. Think of the try catches and exceptions that should be included
+3. check the get item name implementation
+4. Use Sam's formating
+5. Test cart methods
+
+
+Part D : Design Reflections:
+----------------------------
+
+/*Differences in the relationships between BulkItem and BulkContainer compared to the relationship 
+between Package and ManyPackages */
+
+For the BulkItem and BulkContainer, we see a direct is a relationship where by we explicitly through the 'extends'
+keyword that every BulkContainer object also is a BulkItem object.For the Package and ManyPackages we observe a relationship
+of composition such that we say , every ManyPackage object 'has a'  Package.
+
+ BulkItem -BulkContainer relationship advantage/disadvantages over ManyPackage -Package relationship:
+ 
+ Advantages:
+ 
+ i) Since a BulkContainer is a BulkItem, a BulkContainer can easily inherit all the  fields and methods (if package access, public or protected)
+ of BulkItem. This allows for code reuse. In the ManyPackages-Packages scenario we would need have implementations for each separately and 
+ there is not much code reuse
+ 
+ ii)  The inheritance option allows to easily  add to the functionality of parent class that we would like to be evident in the
+child class. So we can basically have something that is BulkItem but behaves differently in its implementation
+
+iii) Inheritance allows us to write even more polymorphic methods, since any method we write that takes a BulkItem as a parameter, can also 
+take a BulkContainer in its stead. Also we can use a BulkItem variable to hold a BulkContainer object but we cant do similar with the 
+ManyPackages-Package approach
+
+
+Disadvantages:
+
+i) With the Many-Packages-Packages approach , a 'Package' object and a 'ManyPackges'objects  though having some connection are 
+ very distinct objects. This means if for any reason we make some changes in the 'Package' class, for instance add some new methods to
+ it, we wouldn't worry about its effect on the 'ManyPackages' class we might just worry about the effect of the change in behavior the package
+ object inside 'ManyPackages' might behave, but we wouldn't necessarily care about effects to our 'ManyPackages' implementation.
+ 
+ We can't say this about the  the 'BulkItem- BulkContainer' approach. Since a BulkContainer is a BulkItem, any changes in the BulkItem class
+ class should strike some concern about how our BulkContainer object behaves. Hence there is more protection(Encapsulation?) when we use 
+ the composition approach than the inheritance approach.
+ 
+ 

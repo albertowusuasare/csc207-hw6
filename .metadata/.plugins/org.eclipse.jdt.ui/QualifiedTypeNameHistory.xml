@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.farevee.groceries.BulkFood"/>
+<fullyQualifiedTypeName name="com.farevee.groceries.BulkItem"/>
+<fullyQualifiedTypeName name="com.farevee.groceries.BulkContainer"/>
+<fullyQualifiedTypeName name="com.farevee.groceries.ManyPackages"/>
+<fullyQualifiedTypeName name="com.farevee.groceries.NonFood"/>
+<fullyQualifiedTypeName name="com.farevee.groceries.Units"/>
+<fullyQualifiedTypeName name="com.farevee.groceries.Package"/>
+<fullyQualifiedTypeName name="com.farevee.groceries.Weight"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,75 @@
+package com.farevee.groceries;
+
+/** 
+ * Implements the ManyPackages
+ * @author albertowusu-asare
+ *
+ */
+public class ManyPackages implements Item {
+
+	/*
+	 * Fields 
+	 */
+	
+	private Package pack;
+	private int count;
+	private Weight weight;
+	/**
+	 * Constructs <code>ManyPackages </code> given its inputs
+	 * @param item the package
+	 * @param the total quantity of packages
+	 */
+	
+	public ManyPackages(Package pack, int quantity){
+		this.pack = pack;
+		this.count = quantity;
+	}
+	@Override
+	public Weight getWeight() {
+		int weightMagnitude = pack.getWeight().getWeightAmount() * count;
+		Units weightUnits = pack.getWeight().getWeightUnits();
+		weight = new Weight(weightMagnitude,weightUnits);
+		return weight;
+	}
+
+	@Override
+	public int getPrice() {
+		
+		return pack.getPrice() * count;
+	}
+
+	/**
+	 * Returns information about this object
+	 */
+	public String toString(){
+		return (this.count + " x "+ pack);
+	}
+	
+
+	/**
+	 * Checks if the current Package is equal to another Package 
+	 * <p> Specifically, the method checks if this object and the other object 
+	 * occupy the same memory location.
+	 * @param obj Some object
+	 * @return <code>true </code> if this and  obj points to the same memory location ; 
+	 *         <br> <code>false</code> if this and other points to different memory locations
+	 */
+	
+	
+public boolean equals(Object obj){
+		
+		// check if obj is a type of BultItem
+		if (this == obj){
+			return true;
+		}
+		if(obj instanceof Package){
+			ManyPackages other = (ManyPackages) obj;
+			// check if both objects point to the same reference
+			if(other == this){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+}
